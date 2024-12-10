@@ -7,7 +7,7 @@ export class UsuarioService {
 
   obtenerUsuarios() {
     return this.restService
-      .get('parametrizacion-productos-/pantalla-principal-parametrizacion')
+      .get('parametrizacion-productos-banca/pantalla-principal-parametrizacion')
       .pipe(map((res: any) => res));
   }
 }

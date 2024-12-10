@@ -4,20 +4,21 @@ This library was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Code scaffolding
 
-Run `ng generate component component-name --project ngx-pbo-productos` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-pbo-productos`.
-> Note: Don't forget to add `--project ngx-pbo-productos` or else it will be added to the default project in your `angular.json` file. 
+Run `ng generate component component-name --project ngx-pbo-productoscartera` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-pbo-productoscartera`.
+
+> Note: Don't forget to add `--project ngx-pbo-productoscartera` or else it will be added to the default project in your `angular.json` file.
 
 ## Build
 
-Run `ng build ngx-pbo-productos` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `ng build ngx-pbo-productoscartera` to build the project. The build artifacts will be stored in the `dist/` directory.
 
 ## Publishing
 
-After building your library with `ng build ngx-pbo-productos`, go to the dist folder `cd dist/ngx-pbo-productos` and run `npm publish`.
+After building your library with `ng build ngx-pbo-productoscartera`, go to the dist folder `cd dist/ngx-pbo-productoscartera` and run `npm publish`.
 
 ## Running unit tests
 
-Run `ng test ngx-pbo-productos` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `ng test ngx-pbo-productoscartera` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 ## Further help
 

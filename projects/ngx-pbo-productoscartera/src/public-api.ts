@@ -1,5 +1,5 @@
 /*
- * Public API Surface of ngx-pbo-productos
+ * Public API Surface of ngx-pbo-productoscartera
  */
 
-export * from './lib/ngx-pbo-productos.module';
+export * from './lib/ngx-pbo-productoscartera.module';

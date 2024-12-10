@@ -3,23 +3,23 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngx-pbo-productos": {
+    "ngx-pbo-productoscartera": {
       "projectType": "library",
-      "root": "projects/ngx-pbo-productos",
-      "sourceRoot": "projects/ngx-pbo-productos/src",
+      "root": "projects/ngx-pbo-productoscartera",
+      "sourceRoot": "projects/ngx-pbo-productoscartera/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/ngx-pbo-productos/ng-package.json"
+            "project": "projects/ngx-pbo-productoscartera/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/ngx-pbo-productos/tsconfig.lib.prod.json"
+              "tsConfig": "projects/ngx-pbo-productoscartera/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/ngx-pbo-productos/tsconfig.lib.json"
+              "tsConfig": "projects/ngx-pbo-productoscartera/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -27,11 +27,8 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "tsConfig": "projects/ngx-pbo-productos/tsconfig.spec.json",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
+            "tsConfig": "projects/ngx-pbo-productoscartera/tsconfig.spec.json",
+            "polyfills": ["zone.js", "zone.js/testing"]
           }
         }
       }
