@@ -1,0 +1,36 @@
+<p>usuarios works!</p>
+
+<div>
+  <app-boton
+    [type]="'submit'"
+    [label]="'Hola'"
+    [icon]="'pi pi-check'"
+    [iconPos]="'left'"
+    [onClick]="clickBoton"
+    [className]="'red-button'"
+  />
+</div>
+<div>
+  <app-boton
+    [type]="'submit'"
+    [label]="'Hola'"
+    [icon]="'pi pi-check'"
+    [iconPos]="'top'"
+    [onClick]="clickBoton"
+  />
+</div>
+<br />
+<div>
+  <app-boton
+    [type]="'submit'"
+    [label]="'Hola'"
+    [icon]="'pi pi-check'"
+    [iconPos]="'right'"
+    [onClick]="clickBoton"
+    [overrideCSS]="'orange-button'"
+  />
+</div>
+<br />
+<div>
+  <lib-boton-busqueda></lib-boton-busqueda>
+</div>
