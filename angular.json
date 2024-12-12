@@ -30,6 +30,18 @@
             "tsConfig": "projects/ngx-pbo-productoscartera/tsconfig.spec.json",
             "polyfills": ["zone.js", "zone.js/testing"]
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/ngx-pbo-productoscartera/**/*.ts",
+              "projects/ngx-pbo-productoscartera/**/*.js",
+              "projects/ngx-pbo-productoscartera/**/*.html",
+              "projects/ngx-pbo-productoscartera/**/*.scss",
+              "projects/ngx-pbo-productoscartera/**/*.css"
+            ]
+          }
         }
       }
     }
