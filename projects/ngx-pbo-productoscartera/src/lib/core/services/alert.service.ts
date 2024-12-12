@@ -4,12 +4,12 @@ import { Observable, Subject } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AlertService {
-  private subject = new Subject<any>();
+  private readonly subject = new Subject<any>();
   private keepAfterNavigationChange = false;
 
-  constructor(private router: Router) {
+  constructor(private readonly _router: Router) {
     // clear alert message on route change
-    this.router.events.subscribe(event => {
+    this._router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
         if (this.keepAfterNavigationChange) {
           // only keep for a single location change
@@ -28,19 +28,31 @@ export class AlertService {
     }, timer);
   }
 
-  success(message: string, keepAfterNavigationChange: boolean = false, timer: number = 3000) {
+  success(
+    message: string,
+    keepAfterNavigationChange: boolean = false,
+    timer: number = 3000,
+  ) {
     this.keepAfterNavigationChange = keepAfterNavigationChange;
     this.subject.next({ type: 'success', text: message });
     this.clearAlert(timer);
   }
 
-  error(message: string, keepAfterNavigationChange: boolean = false, timer: number = 3000) {
+  error(
+    message: string,
+    keepAfterNavigationChange: boolean = false,
+    timer: number = 3000,
+  ) {
     this.keepAfterNavigationChange = keepAfterNavigationChange;
     this.subject.next({ type: 'error', text: message });
     this.clearAlert(timer);
   }
 
-  alert(message: string, keepAfterNavigationChange: boolean = false, timer: number = 5000) {
+  alert(
+    message: string,
+    keepAfterNavigationChange: boolean = false,
+    timer: number = 5000,
+  ) {
     this.keepAfterNavigationChange = keepAfterNavigationChange;
     this.subject.next({ type: 'alert', text: message });
     this.clearAlert(timer);

@@ -20,7 +20,7 @@ export class RestService {
     }),
   };
 
-  constructor(private readonly http: HttpClient) {}
+  constructor(private readonly _http: HttpClient) {}
 
   /**
    * Realiza una solicitud HTTP.
@@ -32,13 +32,13 @@ export class RestService {
   private request(
     method: string,
     endPoint: string,
-    data: any = null
+    data: any = null,
   ): Observable<any> {
     const accessToken = localStorage.getItem('access_token');
     if (accessToken) {
       this._httpOptions.headers = this._httpOptions.headers.set(
         'x-access-token',
-        accessToken
+        accessToken,
       );
     }
     let options = { ...this._httpOptions };
@@ -46,7 +46,7 @@ export class RestService {
       options.body = JSON.stringify(data);
     }
 
-    return this.http
+    return this._http
       .request(method, `${this.BASE_URL}${endPoint}`, options)
       .pipe(map((res: any) => res))
       .pipe(catchError(this.handleError));
@@ -98,7 +98,7 @@ export class RestService {
    */
   fileUpload(reqData: any): Observable<any> {
     let endPoint = 'UploadFile';
-    return this.http
+    return this._http
       .post(`${this.BASE_URL}${endPoint}`, reqData, {
         headers: new HttpHeaders({
           'x-access-token': localStorage.getItem('access_token') ?? '',
@@ -115,7 +115,7 @@ export class RestService {
    * @returns Un Observable con la respuesta de la solicitud.
    */
   commonFileUpload(reqData: any, endPoint: string): Observable<any> {
-    return this.http
+    return this._http
       .post(`${this.BASE_URL}${endPoint}`, reqData, {
         headers: new HttpHeaders({
           'x-access-token': localStorage.getItem('access_token') ?? '',

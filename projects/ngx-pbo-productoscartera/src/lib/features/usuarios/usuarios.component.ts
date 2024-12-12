@@ -13,15 +13,16 @@ import { BotonBusquedaComponent } from '../../shared/moleculas/boton-busqueda/bo
 })
 export class UsuariosComponent implements OnInit {
   className = 'test-button';
+  unusedVariableTwo = 42;
 
-  constructor(private readonly usuarioService: UsuarioService) {}
+  constructor(private readonly _usuarioService: UsuarioService) {}
 
   ngOnInit() {
     this.obtenerUsuarios();
   }
 
   obtenerUsuarios() {
-    this.usuarioService.obtenerUsuarios().subscribe((res) => {
+    this._usuarioService.obtenerUsuarios().subscribe((res) => {
       console.log(res);
     });
   }
