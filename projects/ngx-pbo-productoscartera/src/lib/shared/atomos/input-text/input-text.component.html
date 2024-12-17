@@ -1,0 +1,50 @@
+@if (!useFormModel) {
+  <div class="col-12">
+    <div
+      [class.flex]="textoAyuda"
+      [class.flex-column]="textoAyuda"
+      [class.gap-2]="textoAyuda"
+    >
+      <label class="bold-and-large" *ngIf="etiqueta" [for]="id">
+        {{ etiqueta }}
+      </label>
+      <input
+        [id]="id"
+        type="text"
+        pInputText
+        [(ngModel)]="value"
+        [class.ng-invalid]="hasError"
+        [class.ng-dirty]="hasError"
+        [disabled]="deshabilitado"
+        [placeholder]="placeholder"
+      />
+      <small *ngIf="textoAyuda">
+        {{ textoAyuda }}
+      </small>
+    </div>
+  </div>
+} @else {
+  <div class="col-12" [formGroup]="nameForm">
+    <div
+      [class.flex]="textoAyuda"
+      [class.flex-column]="textoAyuda"
+      [class.gap-2]="textoAyuda"
+    >
+      <label class="bold-and-large" [for]="formControlName" *ngIf="etiqueta">
+        {{ etiqueta }}
+      </label>
+      <input
+        type="text"
+        pInputText
+        [id]="formControlName"
+        formControlName="{{ formControlName }}"
+        [class.ng-invalid]="hasError"
+        [class.ng-dirty]="hasError"
+        [placeholder]="placeholder"
+      />
+      <small *ngIf="textoAyuda">
+        {{ textoAyuda }}
+      </small>
+    </div>
+  </div>
+}

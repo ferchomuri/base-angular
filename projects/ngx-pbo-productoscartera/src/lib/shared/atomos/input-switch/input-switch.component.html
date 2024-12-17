@@ -1,0 +1,17 @@
+<div class="col-12 md:col-12 p-4">
+  <div class="grid border-custom">
+    <div class="col-12 md:col-6">
+      <label for="pagoPorCuotas" class="bold-and-large">
+        {{ etiqueta }}
+      </label>
+    </div>
+    <div class="col-12 md:col-6">
+      <p-inputSwitch [(ngModel)]="checked" />
+    </div>
+    <div class="col-12 md:col-12 px-3" *ngIf="checked">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>
+
+<!-- <p-inputSwitch formControlName="checked" /> -->

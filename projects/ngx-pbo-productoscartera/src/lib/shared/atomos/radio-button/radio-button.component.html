@@ -1,0 +1,42 @@
+<div>
+  <div class="col-12 md:col-12 p-1">
+    @if (!useFormModel) {
+      <div>
+        <div
+          *ngFor="let category of categories"
+          class="mt-0 mx-2 mb-3 border-custom radio-button-padding"
+        >
+          <p-radioButton
+            [inputId]="category[clave]"
+            [name]="category[nombreVisible]"
+            [value]="category"
+            [(ngModel)]="selectedCategory"
+            [class.ng-invalid]="hasError"
+            [class.ng-dirty]="hasError"
+          />
+          <label [for]="category[clave]" class="ml-2">
+            {{ category[nombreVisible] }}
+          </label>
+        </div>
+      </div>
+    } @else {
+      <div [formGroup]="nameForm">
+        <div
+          *ngFor="let category of categories"
+          class="mt-0 mx-2 mb-3 border-custom radio-button-padding"
+        >
+          <p-radioButton
+            [inputId]="category[clave]"
+            [value]="category"
+            [formControlName]="formControlName"
+            [class.ng-invalid]="hasError"
+            [class.ng-dirty]="hasError"
+          />
+          <label [for]="category[clave]" class="ml-2">
+            {{ category[nombreVisible] }}
+          </label>
+        </div>
+      </div>
+    }
+  </div>
+</div>

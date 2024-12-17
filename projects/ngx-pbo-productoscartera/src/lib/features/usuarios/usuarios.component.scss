@@ -4,7 +4,7 @@ div {
   align-items: center;
 }
 
-::ng-deep app-boton .red-button {
+::ng-deep at-boton .red-button {
   background-color: rgb(218, 81, 81);
   border-radius: 10px;
   border: none;
@@ -14,13 +14,13 @@ div {
   margin: 10px;
 }
 
-::ng-deep app-boton .red-button:hover {
+::ng-deep at-boton .red-button:hover {
   background-color: rgb(148, 33, 33);
   color: white;
   cursor: pointer;
 }
 // p-element orange-button p-button p-component
-::ng-deep app-boton .p-element.orange-button.p-button {
+::ng-deep at-boton .p-element.orange-button.p-button {
   color: #ffffff;
   background: #2940d6 !important;
   border: 1px solid #2940d6 !important;

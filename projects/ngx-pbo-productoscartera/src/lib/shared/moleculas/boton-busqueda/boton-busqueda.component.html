@@ -1,8 +1,72 @@
-<app-input [(value)]="parentValue" [type]="'text'"></app-input>
-<app-boton
-[type]="'submit'"
-[label]="'Enviar'"
-[icon]="'pi pi-check'"
-[iconPos]="'left'"
-[onClick]="clickBoton"
+<at-input-text
+  [(ngModel)]="value"
+  [hasError]="false"
+  [etiqueta]="'Nombre1'"
+  [id]="'Nombre1'"
+></at-input-text>
+
+<at-input-switch etiqueta="Hola">
+  <div class="col-12 md:col-12 px-3">
+    <p>Holaaa</p>
+  </div>
+</at-input-switch>
+
+<at-check-box
+  [categories]="categories"
+  [clave]="'key'"
+  [nombreVisible]="'name'"
+  [selectedCategories]="selectedCategories"
+  [name]="'categoria'"
 />
+
+<at-radio-button
+  [categories]="categories"
+  [clave]="'key'"
+  [nombreVisible]="'name'"
+  [selectedCategory]="selectedCategory"
+/>
+
+<at-boton
+  [type]="'submit'"
+  [label]="'Enviar2'"
+  [icon]="'pi pi-check'"
+  [iconPos]="'left'"
+  [onClick]="clickBoton"
+/>
+
+<form [formGroup]="form">
+  <at-input-text
+    [formControlName]="'testF'"
+    [nameForm]="form"
+    [etiqueta]="'Nombre'"
+    [placeholder]="'Prueba'"
+    [hasError]="true"
+    [textoAyuda]="'Enter your username to reset your password.'"
+  />
+  <at-radio-button
+    [categories]="categories"
+    [clave]="'key'"
+    [nombreVisible]="'name'"
+    [formControlName]="'tipo'"
+    [useFormModel]="true"
+    [nameForm]="form"
+    [hasError]="true"
+  />
+  <at-check-box
+    [categories]="categories"
+    [clave]="'key'"
+    [nombreVisible]="'name'"
+    [name]="'categoria'"
+    [formControlName]="'checkCategory'"
+    [useFormModel]="true"
+    [nameForm]="form"
+    [hasError]="true"
+  />
+  <at-boton
+    [type]="'submit'"
+    [label]="'Enviar Formulario'"
+    [icon]="'pi pi-check'"
+    [iconPos]="'left'"
+    [onClick]="clickBoton"
+  />
+</form>

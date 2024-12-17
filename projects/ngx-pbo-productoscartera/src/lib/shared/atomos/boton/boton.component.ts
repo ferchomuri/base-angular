@@ -4,18 +4,18 @@ import {
   Input,
   ViewEncapsulation,
 } from '@angular/core';
-import { PRIMENG_MODULES } from '../../libreria-estilos';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { ButtonModule } from 'primeng/button';
 
 export type ButtonIconPosition = 'left' | 'right' | 'top' | 'bottom';
 
 @Component({
-  selector: 'app-boton',
+  selector: 'at-boton',
   standalone: true,
   templateUrl: './boton.component.html',
   styleUrl: './boton.component.scss',
-  imports: [PRIMENG_MODULES, FormsModule, CommonModule],
+  imports: [ButtonModule, FormsModule, CommonModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })

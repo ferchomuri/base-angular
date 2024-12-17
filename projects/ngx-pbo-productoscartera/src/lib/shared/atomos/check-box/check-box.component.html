@@ -1,0 +1,31 @@
+<div class="col-12">
+  @if (!useFormModel) {
+    <div *ngFor="let category of categories" class="field-checkbox">
+      <p-checkbox
+        [(ngModel)]="selectedCategories"
+        [label]="category[nombreVisible]"
+        [name]="name"
+        [value]="category"
+        [class.ng-invalid]="hasError"
+        [class.ng-dirty]="hasError"
+        [disabled]="deshabilitado"
+      />
+    </div>
+  } @else {
+    <div
+      *ngFor="let category of categories"
+      class="field-checkbox"
+      [formGroup]="nameForm"
+    >
+      <p-checkbox
+        [formControlName]="formControlName"
+        [value]="category"
+        [inputId]="category[clave]"
+        [label]="category[nombreVisible]"
+        [class.ng-invalid]="hasError"
+        [class.ng-dirty]="hasError"
+        [disabled]="deshabilitado"
+      />
+    </div>
+  }
+</div>

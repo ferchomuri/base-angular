@@ -1,42 +1,44 @@
-@if (className !== "" && overrideCSS === "") {
-<button
-  [type]="type"
-  [disabled]="disabled"
-  [ngClass]="className"
-  (click)="onClick()"
->
-  <i [class]="icon"></i>
-  {{ label }}
-</button>
-} 
+<div class="col-12">
+  @if (className !== '' && overrideCSS === '') {
+    <button
+      [type]="type"
+      [disabled]="disabled"
+      [ngClass]="className"
+      (click)="onClick()"
+    >
+      <i [class]="icon"></i>
+      {{ label }}
+    </button>
+  }
 
-@if (className === "" && overrideCSS === "") {
-<p-button
-  [label]="label"
-  [icon]="icon"
-  [iconPos]="iconPos"
-  [disabled]="disabled"
-  [type]="type"
-  [link]="link"
-  (onClick)="onClick()"
-  [loading]="loading"
-  [raised]="raised"
-  [rounded]="rounded"
-  [text]="text"
-></p-button>
-} 
+  @if (className === '' && overrideCSS === '') {
+    <p-button
+      [label]="label"
+      [icon]="icon"
+      [iconPos]="iconPos"
+      [disabled]="disabled"
+      [type]="type"
+      [link]="link"
+      (onClick)="onClick()"
+      [loading]="loading"
+      [raised]="raised"
+      [rounded]="rounded"
+      [text]="text"
+    ></p-button>
+  }
 
-@if (overrideCSS !== "" && className === "") {
-<button
-  pButton
-  pRipple
-  [type]="type"
-  [disabled]="disabled"
-  [ngClass]="overrideCSS"
-  (click)="onClick()"
->
-  <i [class]="icon"></i>
-  {{ label }}
-</button>
-
-}
+  @if (overrideCSS !== '' && className === '') {
+    <button
+      pButton
+      pRipple
+      [type]="type"
+      [icon]="icon"
+      [iconPos]="iconPos"
+      [disabled]="disabled"
+      [ngClass]="overrideCSS"
+      (click)="onClick()"
+    >
+      {{ label }}
+    </button>
+  }
+</div>

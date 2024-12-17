@@ -1,0 +1,41 @@
+.border-custom {
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  transition:
+    background-color 0.2s,
+    color 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s;
+  border-radius: 6px;
+}
+.border-custom:not(.p-disabled):hover {
+  border-color: #00693c;
+}
+.border-custom:not(.p-disabled).p-focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 0.2rem #cce1d8;
+  border-color: #00693c;
+}
+
+::ng-deep .p-radiobutton .p-radiobutton-box.p-highlight {
+  border-color: #00693c;
+  background: #ffffff;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+::ng-deep .p-radiobutton .p-radiobutton-box .p-radiobutton-icon {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  transition-duration: 0.2s;
+  border: 1px solid #ffffff;
+  background-color: #00693c;
+}
+
+.radio-button-padding {
+  padding: 0.5rem;
+}
