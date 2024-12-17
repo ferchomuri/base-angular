@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NgxPboProductosCarteraComponent } from './ngx-pbo-productoscartera.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
+import { LoaderModule } from './shared/organismos/loader/loader.module';
 
 const routes: Routes = [
   {
@@ -13,7 +14,12 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [NgxPboProductosCarteraComponent],
-  imports: [CommonModule, RouterModule.forChild(routes), InicioComponent],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    InicioComponent,
+    LoaderModule,
+  ],
   exports: [RouterModule],
 })
 export class NgxPboProductosCarteraModule {}
