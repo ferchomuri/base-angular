@@ -5,9 +5,10 @@ import {
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, finalize, map } from 'rxjs/operators';
 import { environment } from '../../../environments/enviroment';
 import { ServerMessage } from '../models/server.message';
+import { LoadingService } from '../../shared/organismos/loader/loader.service';
 
 @Injectable({
   providedIn: 'root',
@@ -20,7 +21,10 @@ export class RestService {
     }),
   };
 
-  constructor(private readonly _http: HttpClient) {}
+  constructor(
+    private readonly _http: HttpClient,
+    private readonly _loadingService: LoadingService
+  ) {}
 
   /**
    * Realiza una solicitud HTTP.
@@ -32,13 +36,20 @@ export class RestService {
   private request(
     method: string,
     endPoint: string,
-    data: any = null,
+    data: any = null
   ): Observable<any> {
+    const carteraToken = 'TokenValidado';
     const accessToken = localStorage.getItem('access_token');
+
+    this._httpOptions.headers = this._httpOptions.headers.set(
+      'cartera-token',
+      carteraToken
+    );
+
     if (accessToken) {
       this._httpOptions.headers = this._httpOptions.headers.set(
         'x-access-token',
-        accessToken,
+        accessToken
       );
     }
     let options = { ...this._httpOptions };
@@ -46,10 +57,15 @@ export class RestService {
       options.body = JSON.stringify(data);
     }
 
+    this._loadingService.show();
+
     return this._http
       .request(method, `${this.BASE_URL}${endPoint}`, options)
-      .pipe(map((res: any) => res))
-      .pipe(catchError(this.handleError));
+      .pipe(
+        map((res: any) => res),
+        catchError(this.handleError),
+        finalize(() => this._loadingService.hide())
+      );
   }
 
   /**
@@ -98,14 +114,18 @@ export class RestService {
    */
   fileUpload(reqData: any): Observable<any> {
     let endPoint = 'UploadFile';
+    this._loadingService.show();
     return this._http
       .post(`${this.BASE_URL}${endPoint}`, reqData, {
         headers: new HttpHeaders({
           'x-access-token': localStorage.getItem('access_token') ?? '',
         }),
       })
-      .pipe(map((res: any) => res))
-      .pipe(catchError(this.handleError));
+      .pipe(
+        map((res: any) => res),
+        catchError(this.handleError),
+        finalize(() => this._loadingService.hide())
+      );
   }
 
   /**
@@ -115,14 +135,18 @@ export class RestService {
    * @returns Un Observable con la respuesta de la solicitud.
    */
   commonFileUpload(reqData: any, endPoint: string): Observable<any> {
+    this._loadingService.show();
     return this._http
       .post(`${this.BASE_URL}${endPoint}`, reqData, {
         headers: new HttpHeaders({
           'x-access-token': localStorage.getItem('access_token') ?? '',
         }),
       })
-      .pipe(map((res: any) => res))
-      .pipe(catchError(this.handleError));
+      .pipe(
+        map((res: any) => res),
+        catchError(this.handleError),
+        finalize(() => this._loadingService.hide())
+      );
   }
 
   /**
